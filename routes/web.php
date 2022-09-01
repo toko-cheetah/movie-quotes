@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index');
+
+Route::get('login', [SessionController::class, 'create'])->middleware('guest');
+Route::post('login', [SessionController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth');

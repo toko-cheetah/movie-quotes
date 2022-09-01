@@ -10,18 +10,35 @@
     </head>
 
     <body class="bg-gradient-radial text-white h-screen relative font-sansation font-normal text-5xl leading-tight">
-        
-        {{ $slot }}
+        <header class="absolute right-4 p-6 text-right text-lg flex flex-col">
+            <a href="/">Home</a>
+            
+            @auth
+                <a href="#">Dashboard</a>
+
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit">Log out</button>
+                </form>
+
+                @else
+                <a href="/login">Log In</a>
+            @endauth
+        </header>
+
+        <main class="max-w-5xl m-auto flex flex-col items-center pt-20">
+            {{ $slot }}
+        </main>
         
         <aside class="absolute top-2/4 -translate-y-2/4 left-8 text-2xl">
             <ul>
-                <li class="w-14 h-14 flex justify-center items-center border-2 border-white rounded-full mb-3">
+                <x-list-item>
                     <a href="#">en</a>
-                </li>
+                </x-list-item>
     
-                <li class="w-14 h-14 flex justify-center items-center border-2 border-white rounded-full">
+                <x-list-item>
                     <a href="#">ka</a>
-                </li>
+                </x-list-item>
             </ul>
         </aside>
     </body>
