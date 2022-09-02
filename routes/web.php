@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index');
+Route::view('/', 'index')->name('home');
+
+Route::view('login', 'session.create')->name('login.page')->middleware('guest');
+
+Route::group(['controller' => AuthController::class], function () {
+	Route::post('login', 'login')->name('login')->middleware('guest');
+	Route::post('logout', 'logout')->name('logout')->middleware('auth');
+});
