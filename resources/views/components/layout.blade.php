@@ -11,18 +11,18 @@
 
     <body class="bg-gradient-radial text-white h-screen relative font-sansation font-normal text-5xl leading-tight">
         <header class="absolute right-4 p-6 text-right text-lg flex flex-col">
-            <a href="/">Home</a>
+            <a href="{{ route('home') }}">Home</a>
             
             @auth
                 <a href="#">Dashboard</a>
 
-                <form action="/logout" method="post">
+                <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button type="submit">Log out</button>
                 </form>
 
                 @else
-                <a href="/login">Log In</a>
+                <a href="{{ route('login.page') }}">Log In</a>
             @endauth
         </header>
 

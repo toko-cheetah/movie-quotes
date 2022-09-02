@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index');
+Route::view('/', 'index')->name('home');
 
-Route::get('login', [SessionController::class, 'create'])->middleware('guest');
-Route::post('login', [SessionController::class, 'store'])->middleware('guest');
+Route::view('login', 'session.create')->name('login.page')->middleware('guest');
 
-Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth');
+Route::group(['controller' => AuthController::class], function () {
+	Route::post('login', 'login')->name('login')->middleware('guest');
+	Route::post('logout', 'logout')->name('logout')->middleware('auth');
+});
