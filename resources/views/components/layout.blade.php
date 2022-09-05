@@ -14,7 +14,7 @@
             <a href="{{ route('home') }}">Home</a>
             
             @auth
-                <a href="#">Dashboard</a>
+                <a href="{{ route('movies.create') }}">Dashboard</a>
 
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
