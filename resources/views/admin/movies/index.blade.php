@@ -1,7 +1,9 @@
 <x-layout>
     <x-form.index>
-        @foreach ($movies as $movie)
-            <h1>{{ $movie->title }}</h1>
-        @endforeach
+        <div>
+            @foreach ($movies as $movie)
+                <p>{{ $movie->title }}</p>
+            @endforeach
+        </div>
     </x-form.index>
 </x-layout>

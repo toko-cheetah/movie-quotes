@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MovieController;
+use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,11 @@ Route::view('admin/movies/create', 'admin.movies.create')->name('movies.create')
 Route::group(['controller' => MovieController::class], function () {
 	Route::get('admin/movies', 'index')->name('movies.index');
 	Route::post('admin/movies', 'store')->name('movies.store');
+});
+
+Route::view('admin/quotes/create', 'admin.quotes.create')->name('quotes.create');
+
+Route::group(['controller' => QuoteController::class], function () {
+	Route::get('admin/quotes', 'index')->name('quotes.index');
+	Route::post('admin/quotes', 'store')->name('quotes.store');
 });
