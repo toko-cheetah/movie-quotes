@@ -32,9 +32,8 @@ Route::group(['controller' => MovieController::class], function () {
 	Route::post('admin/movies', 'store')->name('movies.store');
 });
 
-Route::view('admin/quotes/create', 'admin.quotes.create')->name('quotes.create');
-
 Route::group(['controller' => QuoteController::class], function () {
 	Route::get('admin/quotes', 'index')->name('quotes.index');
+	Route::get('admin/quotes/create', 'create')->name('quotes.create');
 	Route::post('admin/quotes', 'store')->name('quotes.store');
 });

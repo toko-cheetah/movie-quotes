@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreQuoteRequest;
+use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -14,6 +15,12 @@ class QuoteController extends Controller
 	{
 		$quotes = Quote::all();
 		return view('admin.quotes.index', ['quotes' => $quotes]);
+	}
+
+	public function create(): View
+	{
+		$movies = Movie::all();
+		return view('admin.quotes.create', ['movies' => $movies]);
 	}
 
 	public function store(StoreQuoteRequest $request): RedirectResponse

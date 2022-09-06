@@ -11,7 +11,7 @@
                 <x-form.label name="category" />
 
                 <select name="movie_id" id="movie_id" class="text-gray-700 text-lg py-3 px-6 mb-5 rounded-2xl w-1/2">
-                    @foreach (App\Models\Movie::all() as $movie)
+                    @foreach ($movies as $movie)
                         <option 
                             value="{{ $movie->id }}"
                             {{ old('movie_id') == $movie->id ? 'selected' : '' }}
