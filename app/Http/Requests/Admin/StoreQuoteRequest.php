@@ -16,7 +16,7 @@ class StoreQuoteRequest extends FormRequest
 		return [
 			'body'        => 'required',
 			'thumbnail'   => 'required|image',
-			'category_id' => 'required',
+			'movie_id'    => 'required',
 		];
 	}
 }
