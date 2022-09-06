@@ -30,6 +30,9 @@ Route::view('admin/movies/create', 'admin.movies.create')->name('movies.create')
 Route::group(['controller' => MovieController::class], function () {
 	Route::get('admin/movies', 'index')->name('movies.index');
 	Route::post('admin/movies', 'store')->name('movies.store');
+	Route::get('admin/movies/{movie}/edit', 'edit')->name('movies.edit');
+	Route::put('admin/movies/{movie}', 'update')->name('movies.update');
+	Route::delete('admin/movies/{movie}', 'destroy')->name('movies.destroy');
 });
 
 Route::group(['controller' => QuoteController::class], function () {
