@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index')->name('home');
+Route::group(['controller' => ContentController::class], function () {
+	Route::get('/', 'randomQuote')->name('home');
+	Route::get('/{movie}', 'movieQuotes')->name('movie_quotes');
+});
 
-Route::view('login', 'login.index')->name('login.page')->middleware('guest');
+Route::view('login/index', 'login.index')->name('login.page')->middleware('guest');
 
 Route::group(['controller' => AuthController::class], function () {
 	Route::post('login', 'login')->name('login')->middleware('guest');
