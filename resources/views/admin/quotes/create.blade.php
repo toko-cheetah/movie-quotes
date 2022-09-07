@@ -8,7 +8,7 @@
             <x-form.input name="thumbnail" type="file"/>
 
             <div class="flex flex-col">
-                <x-form.label name="category" />
+                <x-form.label name="movie" />
 
                 <select name="movie_id" id="movie_id" class="text-gray-700 text-lg py-3 px-6 mb-5 rounded-2xl w-1/2">
                     @foreach ($movies as $movie)
