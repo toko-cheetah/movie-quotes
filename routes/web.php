@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['controller' => ContentController::class], function () {
 	Route::get('/', 'randomQuote')->name('home');
-	Route::get('/{movie}', 'movieQuotes')->name('movie_quotes');
+	Route::get('/movies/{movie}', 'movieQuotes')->name('movie_quotes');
 });
 
-Route::view('login/index', 'login.index')->name('login.page')->middleware('guest');
+Route::view('login', 'login.index')->name('login.page')->middleware('guest');
 
 Route::group(['controller' => AuthController::class], function () {
 	Route::post('login', 'login')->name('login')->middleware('guest');

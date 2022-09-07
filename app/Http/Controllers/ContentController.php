@@ -11,8 +11,7 @@ class ContentController extends Controller
 	public function randomQuote(): View
 	{
 		$quote = Quote::inRandomOrder()->first();
-		$movie = Movie::find($quote->movie_id);
-		return view('main.index', ['quote' => $quote, 'movie' => $movie]);
+		return view('main.index', ['quote' => $quote]);
 	}
 
 	public function movieQuotes(Movie $movie): View
