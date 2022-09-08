@@ -3,12 +3,14 @@
         <form action="{{ route('quotes.store') }}" method="post" class="flex flex-col" enctype="multipart/form-data">
             @csrf
 
+            <x-form.label name="body">{{ __('dashboard.body') }}</x-form.label>
             <x-form.textarea name="body" />
-
+            
+            <x-form.label name="thumbnail">{{ __('dashboard.thumbnail') }}</x-form.label>
             <x-form.input name="thumbnail" type="file"/>
 
             <div class="flex flex-col">
-                <x-form.label name="movie" />
+                <x-form.label name="movie">{{ __('dashboard.movie') }}</x-form.label>
 
                 <select name="movie_id" id="movie_id" class="text-gray-700 text-lg py-3 px-6 mb-5 rounded-2xl w-1/2">
                     @foreach ($movies as $movie)
@@ -22,7 +24,7 @@
                 </select>
             </div>
 
-            <x-form.button>Add</x-form.button>
+            <x-form.button>{{ __('dashboard.add') }}</x-form.button>
         </form>
     </x-form.index>
 </x-layout>

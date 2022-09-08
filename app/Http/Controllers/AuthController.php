@@ -17,7 +17,7 @@ class AuthController extends Controller
 		}
 
 		throw ValidationException::withMessages([
-			'email' => 'Your provided credentials could not be verified',
+			'email' => __('login.not_verified'),
 		]);
 		return back();
 	}

@@ -4,9 +4,10 @@
             @csrf
             @method('PUT')
 
+            <x-form.label name="title">{{ __('dashboard.title') }}</x-form.label>
             <x-form.input name="title" type="text" :value="old('title', $movie->title)" />
 
-            <x-form.button>Update</x-form.button>
+            <x-form.button>{{ __('dashboard.update') }}</x-form.button>
         </form>
     </x-form.index>
 </x-layout>

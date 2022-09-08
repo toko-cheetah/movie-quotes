@@ -11,18 +11,18 @@
 
     <body class="bg-gradient-radial text-white h-screen relative font-sansation font-normal text-5xl leading-tight">
         <header class="absolute right-4 p-6 text-right text-lg flex flex-col">
-            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('home') }}">{{ __('homepage.home') }}</a>
             
             @auth
-                <a href="{{ route('movies.create') }}">Dashboard</a>
+                <a href="{{ route('movies.create') }}">{{ __('homepage.dashboard') }}</a>
 
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <button type="submit">Log out</button>
+                    <button type="submit">{{ __('homepage.log_out') }}</button>
                 </form>
 
                 @else
-                <a href="{{ route('login.page') }}">Log In</a>
+                <a href="{{ route('login.page') }}">{{ __('homepage.log_in') }}</a>
             @endauth
         </header>
 
@@ -33,11 +33,11 @@
         <aside class="absolute top-2/4 -translate-y-2/4 left-8 text-2xl">
             <ul>
                 <x-list-item>
-                    <a href="#">en</a>
+                    <a href="{{ route('locale.change', 'en') }}">en</a>
                 </x-list-item>
     
                 <x-list-item>
-                    <a href="#">ka</a>
+                    <a href="{{ route('locale.change', 'ka') }}">ka</a>
                 </x-list-item>
             </ul>
         </aside>
