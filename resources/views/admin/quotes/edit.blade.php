@@ -4,8 +4,11 @@
             @csrf
             @method('PUT')
 
-            <x-form.label name="body">{{ __('dashboard.body') }}</x-form.label>
-            <x-form.textarea name="body">{{ old('body', $quote->body) }}</x-form.textarea>
+            <x-form.label name="body_en">{{ __('dashboard.body_en') }}</x-form.label>
+            <x-form.textarea name="body_en">{{ old('body_en', $quote->getTranslation('body', 'en')) }}</x-form.textarea>
+            
+            <x-form.label name="body_ka">{{ __('dashboard.body_ka') }}</x-form.label>
+            <x-form.textarea name="body_ka">{{ old('body_ka', $quote->getTranslation('body', 'ka')) }}</x-form.textarea>
 
             <x-form.label name="thumbnail">{{ __('dashboard.thumbnail') }}</x-form.label>
             <x-form.input name="thumbnail" type="file" :value="old('thumbnail', $quote->thumbnail)" />

@@ -4,8 +4,11 @@
             @csrf
             @method('PUT')
 
-            <x-form.label name="title">{{ __('dashboard.title') }}</x-form.label>
-            <x-form.input name="title" type="text" :value="old('title', $movie->title)" />
+            <x-form.label name="title_en">{{ __('dashboard.title_en') }}</x-form.label>
+            <x-form.input name="title_en" type="text" :value="old('title_en', $movie->getTranslation('title', 'en'))" />
+            
+            <x-form.label name="title_ka">{{ __('dashboard.title_ka') }}</x-form.label>
+            <x-form.input name="title_ka" type="text" :value="old('title_ka', $movie->getTranslation('title', 'ka'))" />
 
             <x-form.button>{{ __('dashboard.update') }}</x-form.button>
         </form>

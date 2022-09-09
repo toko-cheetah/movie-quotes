@@ -3,8 +3,11 @@
         <form action="{{ route('quotes.store') }}" method="post" class="flex flex-col" enctype="multipart/form-data">
             @csrf
 
-            <x-form.label name="body">{{ __('dashboard.body') }}</x-form.label>
-            <x-form.textarea name="body" />
+            <x-form.label name="body_en">{{ __('dashboard.body_en') }}</x-form.label>
+            <x-form.textarea name="body_en" />
+
+            <x-form.label name="body_ka">{{ __('dashboard.body_ka') }}</x-form.label>
+            <x-form.textarea name="body_ka" />
             
             <x-form.label name="thumbnail">{{ __('dashboard.thumbnail') }}</x-form.label>
             <x-form.input name="thumbnail" type="file"/>

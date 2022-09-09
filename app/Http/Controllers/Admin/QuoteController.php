@@ -26,8 +26,11 @@ class QuoteController extends Controller
 
 	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
-		$quote = Quote::create($request->validated());
-		$quote['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
+		$quote = new Quote($request->validated());
+		$quote->setTranslation('body', 'en', $request->body_en);
+		$quote->setTranslation('body', 'ka', $request->body_ka);
+		$quote->thumbnail = $request->thumbnail->store('thumbnails');
+		$quote->movie_id = $request->movie_id;
 		$quote->save();
 
 		return redirect()->route('quotes.index');
@@ -42,13 +45,16 @@ class QuoteController extends Controller
 	public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		$quote->update($request->validated());
+		$quote->setTranslation('body', 'en', $request->body_en);
+		$quote->setTranslation('body', 'ka', $request->body_ka);
+		$quote->movie_id = $request->movie_id;
 
-		if ($request->file('thumbnail'))
+		if ($request->thumbnail)
 		{
-			$quote['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
-			$quote->save();
+			$quote->thumbnail = $request->thumbnail->store('thumbnails');
 		}
 
+		$quote->save();
 		return redirect()->route('quotes.index');
 	}
 
