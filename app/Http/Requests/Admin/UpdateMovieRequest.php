@@ -14,7 +14,8 @@ class UpdateMovieRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'title' => 'required',
+			'title_en' => 'required',
+			'title_ka' => 'required',
 		];
 	}
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,3 +50,5 @@ Route::middleware('auth')->group(function () {
 		Route::delete('admin/quotes/{quote}', 'destroy')->name('quotes.destroy');
 	});
 });
+
+Route::get('change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');
