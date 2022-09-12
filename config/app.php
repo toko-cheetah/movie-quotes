@@ -216,5 +216,5 @@ return [
 	|
 	*/
 
-	'available_locale' => ['en', 'ka'],
+	'available_locales' => ['en', 'ka'],
 ];
