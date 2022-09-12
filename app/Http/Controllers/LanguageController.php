@@ -8,7 +8,7 @@ class LanguageController extends Controller
 {
 	public function change(string $locale): RedirectResponse
 	{
-		if (in_array($locale, config('app.available_locale')))
+		if (in_array($locale, config('app.available_locales')))
 		{
 			session()->put('lang', $locale);
 		}
