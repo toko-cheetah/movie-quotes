@@ -17,16 +17,16 @@ It also has a dashboard, where admins can add movies and quotes.
 
 ## Prerequisites
 
-PHP
-Composer
-MySql
+-   PHP
+-   Composer
+-   MySql
 
 #
 
 ## Tech Stack
 
-Laravel
-Spatie Translatable
+-   Laravel
+-   Spatie Translatable
 
 #
 
@@ -35,7 +35,7 @@ Spatie Translatable
 1\. First of all you need to clone Movie Quotes repository from github:
 
 ```sh
-git clone https://github.com/RedberryInternship/tornike-khatiashvili-movie-quotes.git
+git clone https://github.com/toko-cheetah/movie-quotes.git
 ```
 
 2\. Next step requires you to run _composer install_ in order to install all the dependencies.
@@ -71,10 +71,15 @@ And now you should provide **.env** file all the necessary environment variables
 **MYSQL:**
 
 > DB_CONNECTION=mysql
+
 > DB_HOST=127.0.0.1
+
 > DB_PORT=3306
+
 > DB_DATABASE=**\***
+
 > DB_USERNAME=**\***
+
 > DB_PASSWORD=**\***
 
 after setting up **.env** file, execute:
